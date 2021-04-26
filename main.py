@@ -2,18 +2,24 @@ import os
 import shutil
 import time
 import datetime
-from datetime import date,datetime
+from datetime import date, datetime
 import numpy as np
 import pandas as pd
 
-FILE_DICT = {'Шаблон':['',
-                       'J:/~ 09_Машинное обучение_Прогноз показателей СЭР/ЧЕК-ЛИСТЫ и DATA-SHOP/DATA-SHOP/!DATA-SHOP! — шаблон.xlsx',
+FILE_DICT = {'Шаблон': ['',
+                       'U:/ЧЕК-ЛИСТЫ и DATA-SHOP/DATA-SHOP/!DATA-SHOP! — шаблон.xlsx',
                        'Для витрин'],
+#              'Шаблон':['',
+#                        'J:/~ 09_Машинное обучение_Прогноз показателей СЭР/ЧЕК-ЛИСТЫ и DATA-SHOP/DATA-SHOP/!DATA-SHOP! — шаблон.xlsx',
+#                        'Для витрин'],
              'Евсина': ['Отдел развития социальной сферы',
                         'J:/~ 05_Отдел развития социальной сферы/ПРОЕКТЫ/!DATA-SHOP!.xlsx',
                         'Лист1'],
+#              'Оганесян': ['Отдел продвинутой аналитики и машинного обучения',
+#                           'J:/~ 09_Машинное обучение_Прогноз показателей СЭР/ЧЕК-ЛИСТЫ и DATA-SHOP/DATA-SHOP/!DATA-SHOP! - PYTHONUS.xlsx',
+#                           'Для витрин'],
              'Оганесян': ['Отдел продвинутой аналитики и машинного обучения',
-                          'J:/~ 09_Машинное обучение_Прогноз показателей СЭР/ЧЕК-ЛИСТЫ и DATA-SHOP/DATA-SHOP/!DATA-SHOP! - PYTHONUS.xlsx',
+                          'U:/ЧЕК-ЛИСТЫ и DATA-SHOP/DATA-SHOP/!DATA-SHOP! - PYTHONUS.xlsx',
                           'Для витрин'],
              'Окунькова': ['Отдел комлексного мониторинга',
                            'J:/~ 08_Отдел комлексного мониторинга/Политика обращения с данными/!DATA-SHOP!.xlsx',
@@ -44,10 +50,9 @@ for keys in list(FILE_DICT.keys()):
 RESULTS.index = range(RESULTS.shape[0])
 RESULTS
 
-File_name = r'J:\~ 09_Машинное обучение_Прогноз показателей СЭР\ЧЕК-ЛИСТЫ и DATA-SHOP\DATA-SHOP/DATA-SHOP_сводный по отделам.xlsx'
+# File_name = r'J:\~ 09_Машинное обучение_Прогноз показателей СЭР\ЧЕК-ЛИСТЫ и DATA-SHOP\DATA-SHOP/DATA-SHOP_сводный по отделам.xlsx'
+File_name = r'U:\ЧЕК-ЛИСТЫ и DATA-SHOP\DATA-SHOP/DATA-SHOP_сводный по отделам.xlsx'
 Sheet_name = str(date.today())
 
 with pd.ExcelWriter(File_name, engine="openpyxl", mode='a') as writer:
     RESULTS.to_excel(writer, sheet_name=Sheet_name, header=True, index=False, encoding='1251')
-
-
